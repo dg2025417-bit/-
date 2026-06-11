@@ -1,12 +1,10 @@
+<div align="center">
+
 # 📱 청소년 SNS 사용량과 정신건강 분석
 
 ### "SNS를 얼마나 사용하면 학생들에게 부정적 영향이 생길까?"
 
 당곡고등학교 데이터 탐구 프로젝트 🎓
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 
 </div>
 
@@ -26,10 +24,8 @@
 ---
 
 ## 🎯 분석 내용
-하루 SNS 사용 시간 → ❓ → 수면 / 학업 / 신체활동 / 스트레스
 
-code
-복사
+하루 SNS 사용 시간  →  ❓  →  수면 / 학업 / 신체활동 / 스트레스
 
 | 단계 | 분석 방법 | 무엇을 알 수 있나요? |
 |:---:|:---|:---|
@@ -51,41 +47,52 @@ code
 ---
 
 ## 📂 폴더 구조
-📁 프로젝트/ ├── 📄 app.py # 메인 페이지 ├── 📊 Teen_Mental_Health_Dataset.csv ├── 📄 requirements.txt ├── 📄 README.md └── 📁 pages/ └── 📄 2_탐구보고서.py # 통계 탐구보고서
 
-code
-복사
+- 📁 **프로젝트/**
+  - 📄 `app.py` — 메인 페이지
+  - 📊 `Teen_Mental_Health_Dataset.csv` — 데이터 파일
+  - 📄 `requirements.txt`
+  - 📄 `README.md`
+  - 📁 **pages/**
+    - 📄 `2_탐구보고서.py` — 통계 탐구보고서
 
 ---
 
 ## 🚀 실행 방법
 
 **💻 내 컴퓨터에서 실행**
-```bash
-pip install streamlit pandas
-streamlit run app.py
-☁️ 스트림릿 클라우드 배포
 
-GitHub에 파일 업로드
-streamlit.io/cloud 접속
-저장소 연결 후 app.py 선택 → 배포 완료!
-🧪 탐구 질문 (생각해보기)
-🛏️ SNS를 오래 쓸수록 수면 시간은 줄어들까?
-😣 스트레스와 SNS 사용량은 비례할까?
-🔄 SNS가 스트레스를 높인 걸까, 스트레스 때문에 SNS를 더 한 걸까?
-🔍 데이터로는 알 수 없는 '숨은 원인'은 무엇일까?
-✏️ 보고서에는 **'증명했다'**보다 **'~한 경향이 나타났다'**로 쓰는 것이 정확합니다!
+> pip install streamlit pandas
+>
+> streamlit run app.py
+
+**☁️ 스트림릿 클라우드 배포**
+
+1. GitHub에 파일 업로드
+2. [streamlit.io/cloud](https://streamlit.io/cloud) 접속
+3. 저장소 연결 후 `app.py` 선택 → 배포 완료!
+
+---
+
+## 🧪 탐구 질문 (생각해보기)
+
+- 🛏️ SNS를 오래 쓸수록 수면 시간은 줄어들까?
+- 😣 스트레스와 SNS 사용량은 비례할까?
+- 🔄 SNS가 스트레스를 높인 걸까, 스트레스 때문에 SNS를 더 한 걸까?
+- 🔍 데이터로는 알 수 없는 '숨은 원인'은 무엇일까?
+
+> ✏️ 보고서에는 **'증명했다'**보다 **'~한 경향이 나타났다'**로 쓰는 것이 정확합니다!
+
+---
 
 <div align="center">
-👩‍🎓 만든 사람
-당곡고등학교 ○학년 ○반 ○○○
+
+### 👩‍🎓 만든 사람
+
+**당곡고등학교** ○학년 ○반 ○○○
 
 📅 2025년
 
 ⭐ 도움이 되었다면 Star를 눌러주세요!
 
-</div> ```
-📌 사용 팁
-맨 아래 만든 사람 부분의 ○학년 ○반 ○○○에 본인 정보를 넣으세요.
-상단의 **뱃지(badge)**는 GitHub에서 예쁘게 보여요. 자동으로 이미지가 표시됩니다.
-<div align="center">는 가운데 정렬을 해주는 HTML 태그예요. GitHub 마크다운에서 동작합니다.
+</div>
