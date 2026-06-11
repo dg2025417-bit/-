@@ -1,1 +1,62 @@
-# -
+<div align="center">
+
+# 📱 청소년 SNS 사용량과 정신건강 분석
+
+### "SNS를 얼마나 사용하면 학생들에게 부정적 영향이 생길까?"
+
+당곡고등학교 데이터 탐구 프로젝트 🎓
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+
+</div>
+
+---
+
+## 📖 프로젝트 개요
+
+청소년의 **하루 SNS 사용 시간**이 늘어날수록
+**수면 · 학업 · 신체활동 · 스트레스**에 어떤 변화가 나타나는지
+실제 데이터로 분석하는 스트림릿 웹앱입니다.
+
+> 💬 **핵심 메시지**
+> 데이터는 "관련이 있다(상관관계)"는 것을 보여줍니다.
+> 하지만 "SNS 때문이다(인과관계)"라고 단정하면 안 됩니다.
+> **올바른 통계적 사고**를 기르는 것이 이 프로젝트의 목표입니다.
+
+---
+
+## 🎯 분석 내용
+하루 SNS 사용 시간 → ❓ → 수면 / 학업 / 신체활동 / 스트레스
+
+| 단계 | 분석 방법 | 무엇을 알 수 있나요? |
+|:---:|:---|:---|
+| 1️⃣ | 상관관계 분석 | SNS 사용량과 가장 관련 깊은 지표 찾기 |
+| 2️⃣ | 구간별 비교 | '몇 시간부터' 영향이 커지는지 |
+| 3️⃣ | 우울증 비율 | 사용량별 우울증 학생 비율 |
+| 4️⃣ | 결론 정리 | 탐구 보고서 작성 도우미 |
+
+---
+
+## 🖥️ 페이지 구성
+
+**📄 메인 페이지** — `app.py`
+- SNS 사용 구간별 4가지 지표 비교 (막대 · 선 · 산점도)
+
+**📄 탐구보고서 페이지** — `pages/2_탐구보고서.py`
+- 상관계수 계산, 구간 분석, 우울증 비율, 결론 도우미
+
+---
+
+## 📂 폴더 구조
+📁 프로젝트/ ├── 📄 app.py # 메인 페이지 ├── 📊 Teen_Mental_Health_Dataset.csv ├── 📄 requirements.txt ├── 📄 README.md └── 📁 pages/ └── 📄 2_탐구보고서.py # 통계 탐구보고서
+
+---
+
+## 🚀 실행 방법
+
+**💻 내 컴퓨터에서 실행**
+```bash
+pip install streamlit pandas
+streamlit run app.py
