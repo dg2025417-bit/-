@@ -65,7 +65,7 @@ def 상관계수(x, y):
 그래프높이 = 500
 
 def 막대그래프(데이터):
-    여백왼, 가운데, 여백오 = st.columns([1, 4, 1])
+    여백왼, 가운데, 여백오 = st.columns([2, 3, 2])
     with 가운데:
         st.bar_chart(데이터, height=그래프높이)
 
@@ -129,33 +129,38 @@ df["SNS사용구간"] = pd.cut(df["하루SNS사용시간"], bins=구간경계,
     ["수면시간", "학업성취도", "신체활동량", "스트레스수준", "불안수준"]
 )
 
+# 구간별 평균 계산 (인덱스를 문자열로 변환 → 그래프 오류 방지)
 구간평균 = df.groupby("SNS사용구간")[비교지표].mean().round(2)
+구간평균.index = 구간평균.index.astype(str)   # ⭐ 카테고리 → 문자열 변환
 
-# y축 시작점 조절 슬라이더 (0 ~ 최솟값 사이)
+# y축 시작점 조절 슬라이더 (기본값 자동 설정)
 최솟값 = float(구간평균.min())
+자동시작 = max(0.0, 최솟값 - 0.5)
+
 y축시작 = st.slider(
     "y축 시작 값을 조절해 보세요 (값이 클수록 차이가 더 크게 보입니다)",
     min_value=0.0,
     max_value=최솟값,
-    value=min(4.0, 최솟값),
-    step=0.5
+    value=round(자동시작, 1),
+    step=0.1
 )
 
 st.subheader(f"📈 SNS 사용 구간별 평균 {비교지표} (y축 {y축시작}부터 보기)")
 
-# 핵심: 모든 값에서 y축시작을 빼서 그래프를 그림 (차이가 확대돼 보임)
-확대데이터 = (구간평균 - y축시작).rename(f"{y축시작} 초과분")
+# 모든 값에서 y축시작을 빼서 새 데이터프레임 만들기 (차이 확대)
+확대표 = pd.DataFrame({
+    f"{비교지표}({y축시작} 초과분)": (구간평균 - y축시작).values
+}, index=구간평균.index)
 
 여백왼, 가운데, 여백오 = st.columns([1, 4, 1])
 with 가운데:
-    st.line_chart(확대데이터, height=그래프높이)
+    st.line_chart(확대표, height=그래프높이)
 
 st.caption(
     f"※ 위 그래프는 '{y축시작}' 이하 부분을 잘라내어 차이를 확대한 모습입니다. "
     f"세로축 숫자는 '{y축시작} 초과분'을 의미해요. 실제 값은 아래 표를 확인하세요!"
 )
 
-# 실제 값은 표로 함께 보여주기
 st.dataframe(구간평균.rename(f"실제 평균 {비교지표}"), use_container_width=True)
 
 # ─────────────────────────────────────────────
@@ -164,6 +169,8 @@ st.dataframe(구간평균.rename(f"실제 평균 {비교지표}"), use_container
 st.header("3️⃣ SNS 사용 구간별 우울증 비율")
 
 우울비율 = (df.groupby("SNS사용구간")["우울증여부"].mean() * 100).round(2)
+우울비율.index = 우울비율.index.astype(str)   # 카테고리 → 문자열 변환
+
 st.subheader("📈 구간별 우울증 학생 비율 (%) (꺾은선)")
 꺾은선그래프(우울비율)
 st.dataframe(우울비율.rename("우울증 비율(%)"), use_container_width=True)
