@@ -61,6 +61,7 @@
 본 프로젝트에 사용된 데이터는 아래 Kaggle에서 가져왔습니다.
 
 🔗 Teenager Mental Health Dataset (Kaggle)
+https://www.kaggle.com/datasets/algozee/teenager-menthal-healy
 
 위 링크를 클릭하면 원본 데이터 페이지로 이동합니다.
 
